@@ -1,0 +1,32 @@
+{
+  "name": "@fx-risk-desk/client",
+  "version": "0.1.0",
+  "description": "Typed client for the local FX Risk Desk API",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "generate": "openapi-typescript openapi.json -o src/schema.ts",
+    "check:schema": "openapi-typescript openapi.json -o src/schema.ts --check",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "openapi-fetch": "0.17.0"
+  },
+  "devDependencies": {
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

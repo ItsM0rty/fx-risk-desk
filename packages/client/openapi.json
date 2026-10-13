@@ -1,0 +1,1005 @@
+{
+  "components": {
+    "schemas": {
+      "DataSource": {
+        "properties": {
+          "first_date": {
+            "format": "date",
+            "title": "First Date",
+            "type": "string"
+          },
+          "last_date": {
+            "format": "date",
+            "title": "Last Date",
+            "type": "string"
+          },
+          "observations": {
+            "title": "Observations",
+            "type": "integer"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url",
+          "sha256",
+          "observations",
+          "first_date",
+          "last_date"
+        ],
+        "title": "DataSource",
+        "type": "object"
+      },
+      "ForecastPoint": {
+        "properties": {
+          "actual": {
+            "title": "Actual",
+            "type": "number"
+          },
+          "date": {
+            "format": "date",
+            "title": "Date",
+            "type": "string"
+          },
+          "high": {
+            "title": "High",
+            "type": "number"
+          },
+          "issued_at": {
+            "format": "date-time",
+            "title": "Issued At",
+            "type": "string"
+          },
+          "low": {
+            "title": "Low",
+            "type": "number"
+          },
+          "median": {
+            "title": "Median",
+            "type": "number"
+          }
+        },
+        "required": [
+          "date",
+          "issued_at",
+          "actual",
+          "low",
+          "median",
+          "high"
+        ],
+        "title": "ForecastPoint",
+        "type": "object"
+      },
+      "ForecastScores": {
+        "properties": {
+          "baseline_coverage": {
+            "title": "Baseline Coverage",
+            "type": "number"
+          },
+          "baseline_pinball": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Baseline Pinball",
+            "type": "array"
+          },
+          "baseline_width": {
+            "title": "Baseline Width",
+            "type": "number"
+          },
+          "coverage": {
+            "title": "Coverage",
+            "type": "number"
+          },
+          "first_date": {
+            "format": "date",
+            "title": "First Date",
+            "type": "string"
+          },
+          "last_date": {
+            "format": "date",
+            "title": "Last Date",
+            "type": "string"
+          },
+          "mean_width": {
+            "title": "Mean Width",
+            "type": "number"
+          },
+          "observations": {
+            "title": "Observations",
+            "type": "integer"
+          },
+          "pinball": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Pinball",
+            "type": "array"
+          }
+        },
+        "required": [
+          "observations",
+          "first_date",
+          "last_date",
+          "pinball",
+          "baseline_pinball",
+          "coverage",
+          "baseline_coverage",
+          "mean_width",
+          "baseline_width"
+        ],
+        "title": "ForecastScores",
+        "type": "object"
+      },
+      "ForecastSeries": {
+        "properties": {
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/ForecastPoint"
+            },
+            "title": "Points",
+            "type": "array"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "points"
+        ],
+        "title": "ForecastSeries",
+        "type": "object"
+      },
+      "ForecastSummary": {
+        "properties": {
+          "baseline_coverage": {
+            "title": "Baseline Coverage",
+            "type": "number"
+          },
+          "baseline_pinball": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Baseline Pinball",
+            "type": "array"
+          },
+          "baseline_width": {
+            "title": "Baseline Width",
+            "type": "number"
+          },
+          "baseline_window": {
+            "title": "Baseline Window",
+            "type": "integer"
+          },
+          "coverage": {
+            "title": "Coverage",
+            "type": "number"
+          },
+          "final_year": {
+            "$ref": "#/components/schemas/ForecastScores"
+          },
+          "first_date": {
+            "format": "date",
+            "title": "First Date",
+            "type": "string"
+          },
+          "last_date": {
+            "format": "date",
+            "title": "Last Date",
+            "type": "string"
+          },
+          "mean_width": {
+            "title": "Mean Width",
+            "type": "number"
+          },
+          "observations": {
+            "title": "Observations",
+            "type": "integer"
+          },
+          "pinball": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Pinball",
+            "type": "array"
+          },
+          "quantiles": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Quantiles",
+            "type": "array"
+          },
+          "raw_crossing_rate": {
+            "title": "Raw Crossing Rate",
+            "type": "number"
+          }
+        },
+        "required": [
+          "observations",
+          "first_date",
+          "last_date",
+          "pinball",
+          "baseline_pinball",
+          "coverage",
+          "baseline_coverage",
+          "mean_width",
+          "baseline_width",
+          "quantiles",
+          "raw_crossing_rate",
+          "baseline_window",
+          "final_year"
+        ],
+        "title": "ForecastSummary",
+        "type": "object"
+      },
+      "Greeks": {
+        "properties": {
+          "delta": {
+            "title": "Delta",
+            "type": "number"
+          },
+          "gamma": {
+            "title": "Gamma",
+            "type": "number"
+          },
+          "vega_per_point": {
+            "title": "Vega Per Point",
+            "type": "number"
+          }
+        },
+        "required": [
+          "delta",
+          "gamma",
+          "vega_per_point"
+        ],
+        "title": "Greeks",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "OptionScenario": {
+        "properties": {
+          "domestic_rate": {
+            "title": "Domestic Rate",
+            "type": "number"
+          },
+          "foreign_rate": {
+            "title": "Foreign Rate",
+            "type": "number"
+          },
+          "greeks": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Greeks"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maturity_days": {
+            "title": "Maturity Days",
+            "type": "integer"
+          },
+          "notional_eur": {
+            "title": "Notional Eur",
+            "type": "integer"
+          },
+          "option_type": {
+            "enum": [
+              "call",
+              "put"
+            ],
+            "title": "Option Type",
+            "type": "string"
+          },
+          "premium_per_eur": {
+            "title": "Premium Per Eur",
+            "type": "number"
+          },
+          "premium_usd": {
+            "title": "Premium Usd",
+            "type": "number"
+          },
+          "shocks": {
+            "items": {
+              "$ref": "#/components/schemas/SpotShock"
+            },
+            "title": "Shocks",
+            "type": "array"
+          },
+          "spot": {
+            "title": "Spot",
+            "type": "number"
+          },
+          "strike": {
+            "title": "Strike",
+            "type": "number"
+          },
+          "volatility": {
+            "title": "Volatility",
+            "type": "number"
+          }
+        },
+        "required": [
+          "spot",
+          "strike",
+          "maturity_days",
+          "volatility",
+          "option_type",
+          "notional_eur",
+          "premium_per_eur",
+          "premium_usd",
+          "domestic_rate",
+          "foreign_rate",
+          "greeks",
+          "shocks"
+        ],
+        "title": "OptionScenario",
+        "type": "object"
+      },
+      "Payout": {
+        "properties": {
+          "buy_npr_per_usd": {
+            "title": "Buy Npr Per Usd",
+            "type": "number"
+          },
+          "date": {
+            "format": "date",
+            "title": "Date",
+            "type": "string"
+          },
+          "mid_npr_per_usd": {
+            "title": "Mid Npr Per Usd",
+            "type": "number"
+          },
+          "npr_amount": {
+            "title": "Npr Amount",
+            "type": "number"
+          },
+          "sell_npr_per_usd": {
+            "title": "Sell Npr Per Usd",
+            "type": "number"
+          },
+          "usd_at_buy": {
+            "title": "Usd At Buy",
+            "type": "number"
+          },
+          "usd_at_mid": {
+            "title": "Usd At Mid",
+            "type": "number"
+          }
+        },
+        "required": [
+          "date",
+          "npr_amount",
+          "buy_npr_per_usd",
+          "sell_npr_per_usd",
+          "mid_npr_per_usd",
+          "usd_at_buy",
+          "usd_at_mid"
+        ],
+        "title": "Payout",
+        "type": "object"
+      },
+      "Policy": {
+        "properties": {
+          "breach_rate": {
+            "title": "Breach Rate",
+            "type": "number"
+          },
+          "breaches": {
+            "title": "Breaches",
+            "type": "integer"
+          },
+          "conditional_coverage_p": {
+            "title": "Conditional Coverage P",
+            "type": "number"
+          },
+          "hedge_pct": {
+            "enum": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+            "title": "Hedge Pct",
+            "type": "integer"
+          },
+          "independence_p": {
+            "title": "Independence P",
+            "type": "number"
+          },
+          "kupiec_p": {
+            "title": "Kupiec P",
+            "type": "number"
+          },
+          "mean_daily_fee": {
+            "title": "Mean Daily Fee",
+            "type": "number"
+          },
+          "next_es": {
+            "title": "Next Es",
+            "type": "number"
+          },
+          "next_var": {
+            "title": "Next Var",
+            "type": "number"
+          },
+          "observations": {
+            "title": "Observations",
+            "type": "integer"
+          },
+          "worst_day": {
+            "title": "Worst Day",
+            "type": "number"
+          }
+        },
+        "required": [
+          "hedge_pct",
+          "next_var",
+          "next_es",
+          "observations",
+          "breaches",
+          "breach_rate",
+          "mean_daily_fee",
+          "kupiec_p",
+          "independence_p",
+          "conditional_coverage_p",
+          "worst_day"
+        ],
+        "title": "Policy",
+        "type": "object"
+      },
+      "Position": {
+        "properties": {
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "pair": {
+            "title": "Pair",
+            "type": "string"
+          },
+          "quantity": {
+            "title": "Quantity",
+            "type": "integer"
+          },
+          "usd_mark": {
+            "title": "Usd Mark",
+            "type": "number"
+          }
+        },
+        "required": [
+          "pair",
+          "currency",
+          "quantity",
+          "usd_mark"
+        ],
+        "title": "Position",
+        "type": "object"
+      },
+      "RiskPoint": {
+        "properties": {
+          "breach": {
+            "title": "Breach",
+            "type": "boolean"
+          },
+          "date": {
+            "format": "date",
+            "title": "Date",
+            "type": "string"
+          },
+          "es": {
+            "title": "Es",
+            "type": "number"
+          },
+          "pnl": {
+            "title": "Pnl",
+            "type": "number"
+          },
+          "unhedged_pnl": {
+            "title": "Unhedged Pnl",
+            "type": "number"
+          },
+          "var": {
+            "title": "Var",
+            "type": "number"
+          }
+        },
+        "required": [
+          "date",
+          "pnl",
+          "unhedged_pnl",
+          "var",
+          "es",
+          "breach"
+        ],
+        "title": "RiskPoint",
+        "type": "object"
+      },
+      "RiskSeries": {
+        "properties": {
+          "hedge_pct": {
+            "enum": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+            "title": "Hedge Pct",
+            "type": "integer"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/RiskPoint"
+            },
+            "title": "Points",
+            "type": "array"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "hedge_pct",
+          "points"
+        ],
+        "title": "RiskSeries",
+        "type": "object"
+      },
+      "RunSummary": {
+        "properties": {
+          "as_of": {
+            "format": "date",
+            "title": "As Of",
+            "type": "string"
+          },
+          "forecast": {
+            "$ref": "#/components/schemas/ForecastSummary"
+          },
+          "hedge_fee_bps": {
+            "title": "Hedge Fee Bps",
+            "type": "number"
+          },
+          "nrb_payout": {
+            "$ref": "#/components/schemas/Payout"
+          },
+          "policies": {
+            "items": {
+              "$ref": "#/components/schemas/Policy"
+            },
+            "title": "Policies",
+            "type": "array"
+          },
+          "positions": {
+            "items": {
+              "$ref": "#/components/schemas/Position"
+            },
+            "title": "Positions",
+            "type": "array"
+          },
+          "reporting_currency": {
+            "const": "USD",
+            "title": "Reporting Currency",
+            "type": "string"
+          },
+          "risk_window": {
+            "title": "Risk Window",
+            "type": "integer"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "sources": {
+            "$ref": "#/components/schemas/Sources"
+          },
+          "spot": {
+            "title": "Spot",
+            "type": "number"
+          },
+          "tail_probability": {
+            "title": "Tail Probability",
+            "type": "number"
+          }
+        },
+        "required": [
+          "run_id",
+          "as_of",
+          "reporting_currency",
+          "spot",
+          "positions",
+          "tail_probability",
+          "risk_window",
+          "hedge_fee_bps",
+          "sources",
+          "policies",
+          "forecast",
+          "nrb_payout"
+        ],
+        "title": "RunSummary",
+        "type": "object"
+      },
+      "Sources": {
+        "properties": {
+          "ecb": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "nrb": {
+            "$ref": "#/components/schemas/DataSource"
+          }
+        },
+        "required": [
+          "ecb",
+          "nrb"
+        ],
+        "title": "Sources",
+        "type": "object"
+      },
+      "SpotShock": {
+        "properties": {
+          "pnl_usd": {
+            "title": "Pnl Usd",
+            "type": "number"
+          },
+          "shock_pct": {
+            "title": "Shock Pct",
+            "type": "integer"
+          },
+          "spot": {
+            "title": "Spot",
+            "type": "number"
+          },
+          "value_usd": {
+            "title": "Value Usd",
+            "type": "number"
+          }
+        },
+        "required": [
+          "shock_pct",
+          "spot",
+          "value_usd",
+          "pnl_usd"
+        ],
+        "title": "SpotShock",
+        "type": "object"
+      },
+      "UnavailableRun": {
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          }
+        },
+        "required": [
+          "detail"
+        ],
+        "title": "UnavailableRun",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Public-data FX research desk.",
+    "title": "FX Risk Desk",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/options/scenario": {
+      "get": {
+        "operationId": "getOptionScenario",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "strike",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "exclusiveMinimum": 0,
+                  "maximum": 10,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Strike"
+            }
+          },
+          {
+            "in": "query",
+            "name": "maturity_days",
+            "required": false,
+            "schema": {
+              "default": 90,
+              "maximum": 730,
+              "minimum": 1,
+              "title": "Maturity Days",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "volatility",
+            "required": false,
+            "schema": {
+              "default": 0.09,
+              "maximum": 2,
+              "minimum": 0,
+              "title": "Volatility",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "notional",
+            "required": false,
+            "schema": {
+              "default": 1000000,
+              "maximum": 100000000,
+              "minimum": 1,
+              "title": "Notional",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "option_type",
+            "required": false,
+            "schema": {
+              "default": "put",
+              "enum": [
+                "call",
+                "put"
+              ],
+              "title": "Option Type",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OptionScenario"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnavailableRun"
+                }
+              }
+            },
+            "description": "The local risk snapshot is unavailable."
+          }
+        },
+        "summary": "Get Option Scenario"
+      }
+    },
+    "/api/v1/runs/latest": {
+      "get": {
+        "operationId": "getRun",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnavailableRun"
+                }
+              }
+            },
+            "description": "The local risk snapshot is unavailable."
+          }
+        },
+        "summary": "Get Run"
+      }
+    },
+    "/api/v1/runs/latest/forecast": {
+      "get": {
+        "operationId": "getForecast",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 120,
+              "maximum": 5000,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForecastSeries"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnavailableRun"
+                }
+              }
+            },
+            "description": "The local risk snapshot is unavailable."
+          }
+        },
+        "summary": "Get Forecast"
+      }
+    },
+    "/api/v1/runs/latest/risk": {
+      "get": {
+        "operationId": "getRisk",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hedge_pct",
+            "required": false,
+            "schema": {
+              "default": "75",
+              "enum": [
+                "0",
+                "25",
+                "50",
+                "75",
+                "100"
+              ],
+              "title": "Hedge Pct",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 252,
+              "maximum": 5000,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskSeries"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnavailableRun"
+                }
+              }
+            },
+            "description": "The local risk snapshot is unavailable."
+          }
+        },
+        "summary": "Get Risk"
+      }
+    }
+  }
+}
