@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { ForecastSeries, HedgeChoice, RiskSeries, RunSummary } from "@fx-risk-desk/client";
+import type { ForecastSeries, HedgeChoice, RiskSeries, RunSummary } from "@itsm0rty/fx-risk-desk-client";
 import { api, errorText, requireData } from "./api";
 import { ForecastChart, RiskChart } from "./charts";
 import { day, number, percent, usd } from "./format";

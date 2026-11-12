@@ -1,9 +1,13 @@
 # FX Risk Desk client
 
-An ESM TypeScript client for the local FX Risk Desk API. Install the tarball built with `npm pack` from this package.
+An ESM TypeScript client for the local FX Risk Desk API.
+
+```sh
+npm install @itsm0rty/fx-risk-desk-client
+```
 
 ```ts
-import { createRiskDeskClient } from "@fx-risk-desk/client";
+import { createRiskDeskClient } from "@itsm0rty/fx-risk-desk-client";
 
 const client = createRiskDeskClient("http://127.0.0.1:8000");
 const { data, error } = await client.GET("/api/v1/runs/latest/risk", {

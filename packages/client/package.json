@@ -1,5 +1,5 @@
 {
-  "name": "@fx-risk-desk/client",
+  "name": "@itsm0rty/fx-risk-desk-client",
   "version": "0.1.0",
   "description": "Typed client for the local FX Risk Desk API",
   "license": "MIT",

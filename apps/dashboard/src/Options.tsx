@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
-import type { OptionScenario } from "@fx-risk-desk/client";
+import type { OptionScenario } from "@itsm0rty/fx-risk-desk-client";
 import { api, errorText, requireData } from "./api";
 import { percent, usd } from "./format";
 

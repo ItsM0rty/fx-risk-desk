@@ -2,7 +2,7 @@ import {
   Area, CartesianGrid, ComposedChart, Line, ReferenceDot, ReferenceLine, ResponsiveContainer,
   Tooltip, XAxis, YAxis,
 } from "recharts";
-import type { ForecastSeries, RiskSeries } from "@fx-risk-desk/client";
+import type { ForecastSeries, RiskSeries } from "@itsm0rty/fx-risk-desk-client";
 import { day, month, percent, usd } from "./format";
 
 const axis = { fill: "#98a7b9", fontSize: 11 };

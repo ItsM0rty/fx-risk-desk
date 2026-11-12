@@ -50,6 +50,6 @@ npm run build
 .venv/Scripts/python.exe -m scripts.check_client_package
 ```
 
-After an intentional API schema change, run `.venv/Scripts/python.exe -m riskdesk.export_schema` and `npm run generate -w @fx-risk-desk/client`. The client exports typed methods generated from the checked-in schema and uses openapi-fetch for HTTP. The package can be installed from a local npm tarball.
+After an intentional API schema change, run `.venv/Scripts/python.exe -m riskdesk.export_schema` and `npm run generate -w @itsm0rty/fx-risk-desk-client`. The client exports typed methods generated from the checked-in schema and uses openapi-fetch for HTTP. Install the client with `npm install @itsm0rty/fx-risk-desk-client`.
 
 [ECB reference rates](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html) · [Nepal Rastra Bank FX API](https://www.nrb.org.np/api-docs-v1/)

@@ -1,4 +1,4 @@
-import { createRiskDeskClient } from "@fx-risk-desk/client";
+import { createRiskDeskClient } from "@itsm0rty/fx-risk-desk-client";
 
 export const api = createRiskDeskClient();
 

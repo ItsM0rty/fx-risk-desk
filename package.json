@@ -7,11 +7,11 @@
     "packages/client"
   ],
   "scripts": {
-    "build": "npm run build -w @fx-risk-desk/client && npm run build -w @fx-risk-desk/dashboard",
+    "build": "npm run build -w @itsm0rty/fx-risk-desk-client && npm run build -w @fx-risk-desk/dashboard",
     "dev": "npm run dev -w @fx-risk-desk/dashboard",
-    "check:schema": "npm run check:schema -w @fx-risk-desk/client"
+    "check:schema": "npm run check:schema -w @itsm0rty/fx-risk-desk-client"
   },
   "dependencies": {
-    "@fx-risk-desk/client": "^0.1.0"
+    "@itsm0rty/fx-risk-desk-client": "^0.1.0"
   }
 }
