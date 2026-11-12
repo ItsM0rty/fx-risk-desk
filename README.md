@@ -47,7 +47,7 @@ The fetch script caches the ECB ZIP and the paginated NRB USD quotes under `data
 .venv/Scripts/python.exe -m riskdesk.export_schema --check
 npm run check:schema
 npm run build
-npm pack -w @fx-risk-desk/client --dry-run
+.venv/Scripts/python.exe -m scripts.check_client_package
 ```
 
 After an intentional API schema change, run `.venv/Scripts/python.exe -m riskdesk.export_schema` and `npm run generate -w @fx-risk-desk/client`. The client exports typed methods generated from the checked-in schema and uses openapi-fetch for HTTP. The package can be installed from a local npm tarball.

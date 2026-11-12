@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install Python dependencies
+        run: ./scripts/setup-python.ps1
+
+      - name: Run Python tests
+        run: ./.venv/Scripts/python.exe -m pytest -q --basetemp .cache/pytest
+
+      - name: Check OpenAPI snapshot
+        run: ./.venv/Scripts/python.exe -m riskdesk.export_schema --check
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Check generated TypeScript types
+        run: npm run check:schema
+
+      - name: Build client and dashboard
+        run: npm run build
+
+      - name: Smoke-test the packed client against FastAPI
+        run: ./.venv/Scripts/python.exe -m scripts.check_client_package

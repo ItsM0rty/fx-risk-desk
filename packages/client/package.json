@@ -2,6 +2,15 @@
   "name": "@fx-risk-desk/client",
   "version": "0.1.0",
   "description": "Typed client for the local FX Risk Desk API",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsM0rty/fx-risk-desk.git",
+    "directory": "packages/client"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "files": [
     "dist",
